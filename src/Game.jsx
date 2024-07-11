@@ -25,17 +25,16 @@ export default function Game() {
 		const index = squaresInfo.index;
 		const row = Math.floor(index / 3);
 		const col = index % 3;
-		const symbol = index % 2 == 0 ? 'X' : 'O';
-		console.log('index: ', index);
+		const symbol = move % 2 == 0 ? 'X' : 'O';
 		if (move > 0) {
 			description = `Goto move #${move} ${symbol}(${row}, ${col})`;
 		} else {
-			description = "Goto game start (0, 0)";
+			description = `Goto game start ${symbol}(${row}, ${col})`;
 		}
 		return (
 			<li key={move}>
-				{move === currentMove ? (
-					<div>You are at move #{move}</div>
+				{move === currentMove && calculateWinner(squaresInfo) ? (
+					<div>Move {move}: {symbol} to play</div>
 				) : (
 					<button onClick={() => jumpTo(move)}>{description}</button>
 				)}
