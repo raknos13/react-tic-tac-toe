@@ -63,6 +63,7 @@ export default function Game() {
 	);
 }
 
+//returns an object with winner and an arrayy of winning line cordinates
 function calculateWinner(squares) {
 	const lines = [
 		[0, 1, 2],
