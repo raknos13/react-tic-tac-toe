@@ -30,11 +30,11 @@ export default function Game() {
 		const index = squaresInfo.index;
 		const row = Math.floor(index / 3);
 		const col = index % 3;
-		const symbol = move % 2 == 0 ? "X" : "O";
+		const symbol = move % 2 !== 0 ? "X" : "O";
 		if (move > 0) {
 			description = `Goto move #${move} ${symbol}(${row}, ${col})`;
 		} else {
-			description = `Goto game start ${symbol}(${row}, ${col})`;
+			description = `Goto game start`;
 		}
 		return (
 			<li key={move}>
