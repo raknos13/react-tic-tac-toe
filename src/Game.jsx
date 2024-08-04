@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Board from "./Board";
+import './App.css';
 
 export default function Game() {
 	const [xIsNext, setXIsNext] = useState(true);
@@ -64,8 +65,9 @@ export default function Game() {
 				</div>
 				<div className='game-info'>
 					<ol>{reverseMoveOrder ? moves.toReversed() : moves}</ol>
-					<button onClick={() => setReverseMoveOrder(!reverseMoveOrder)}>
-						<i className='fa-solid fa-repeat'></i>
+					<button onClick={() => setReverseMoveOrder(!reverseMoveOrder)} className="btn-reverse-move">
+						<i className='fa-solid fa-repeat'></i> 
+						<span> Reverse move order</span>
 					</button>
 				</div>
 			</div>
