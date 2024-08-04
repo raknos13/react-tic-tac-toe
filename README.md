@@ -1,5 +1,5 @@
 Tic-Tac-Toe game using React.
-![https://reactjs-tic-tac-t0e.netlify.app/](https://i.imgur.com/buTMxju.png)
+[![](https://i.imgur.com/buTMxju.png)](https://reactjs-tic-tac-t0e.netlify.app/)
 
 Features:
 
