@@ -61,33 +61,55 @@ ul {
   background: #282828;
 }
 
+.square:hover {
+  background-color: #689d6a;
+}
+
 .game {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  padding: 4em;
+  padding: 2em;
 }
 
 .game-info {
-  margin: 0 20px;
+  background-color: #282828;
+  margin: 0 10px;
   padding: 20px;
   border: 2px solid black;
   height: 22.5em;
   align-self: flex-end;
+  display: flex;
+  justify-content: space-evenly;
+  align-items:center;
+  flex-direction: column;
 }
 
 .game-info button {
-  background: #282828;
+  background: #1d2021;
   padding: 3px;
   border: 1px solid grey;
-  width: 250px;
+  width: 180px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #689d6a;
+}
+
+.game-info .btn-reverse-move {
+  width: 180px;
+  padding: 5px;
 }
 
 .title {
   font-size: 5em;
   text-align: center;
   font-family: "Pacifico", cursive;
+}
+
+.status h2 {
+  font-size: 2em;
+  text-align: center;
 }
