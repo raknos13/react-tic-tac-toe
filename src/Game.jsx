@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Board from "./Board";
 
 export default function Game() {
 	const [xIsNext, setXIsNext] = useState(true);
-	const [history, setHistory] = useState([{squares: Array(9).fill(null), index: -1}]);
+	const [history, setHistory] = useState([
+		{ squares: Array(9).fill(null), index: -1 },
+	]);
 	const [currentMove, setCurrentMove] = useState(0);
 	const [reverseMoveOrder, setReverseMoveOrder] = useState(false);
 	const currentSquares = history[currentMove].squares;
 
 	function handlePlay(nextSquares, i) {
-		const nextHistory = [...history.slice(0, currentMove + 1), {squares: nextSquares, index: i}];
+		const nextHistory = [
+			...history.slice(0, currentMove + 1),
+			{ squares: nextSquares, index: i },
+		];
 		setHistory(nextHistory);
 		setCurrentMove(nextHistory.length - 1);
 		setXIsNext(!xIsNext);
@@ -25,7 +30,7 @@ export default function Game() {
 		const index = squaresInfo.index;
 		const row = Math.floor(index / 3);
 		const col = index % 3;
-		const symbol = move % 2 == 0 ? 'X' : 'O';
+		const symbol = move % 2 == 0 ? "X" : "O";
 		if (move > 0) {
 			description = `Goto move #${move} ${symbol}(${row}, ${col})`;
 		} else {
@@ -34,7 +39,9 @@ export default function Game() {
 		return (
 			<li key={move}>
 				{move === currentMove && calculateWinner(squaresInfo) ? (
-					<div>Move {move}: {symbol} to play</div>
+					<div>
+						Move {move}: {symbol} to play
+					</div>
 				) : (
 					<button onClick={() => jumpTo(move)}>{description}</button>
 				)}
@@ -43,27 +50,30 @@ export default function Game() {
 	});
 
 	return (
-		<div className='game'>
-			<div className='game-board'>
-				<Board
-					xIsNext={xIsNext}
-					squares={currentSquares}
-					onPlay={handlePlay}
-					currentMove={currentMove}
-					calculateWinner={calculateWinner}
-				/>
+		<>
+			<div className='title'>Tic-Tac-Toe</div>
+			<div className='game'>
+				<div className='game-board'>
+					<Board
+						xIsNext={xIsNext}
+						squares={currentSquares}
+						onPlay={handlePlay}
+						currentMove={currentMove}
+						calculateWinner={calculateWinner}
+					/>
+				</div>
+				<div className='game-info'>
+					<button onClick={() => setReverseMoveOrder(!reverseMoveOrder)}>
+						Toggle move order
+					</button>
+					<ol>{reverseMoveOrder ? moves.toReversed() : moves}</ol>
+				</div>
 			</div>
-			<div className='game-info'>
-				<button onClick={() => setReverseMoveOrder(!reverseMoveOrder)}>
-					Toggle move order
-				</button>
-				<ol>{reverseMoveOrder ? moves.toReversed() : moves}</ol>
-			</div>
-		</div>
+		</>
 	);
 }
 
-//returns an object with winner and an arrayy of winning line cordinates
+//returns an object with winner and an array of winning line cordinates
 function calculateWinner(squares) {
 	const lines = [
 		[0, 1, 2],
