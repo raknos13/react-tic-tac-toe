@@ -1,4 +1,5 @@
 import Square from "./Square";
+import './App.css';
 
 export default function Board({ xIsNext, squares, onPlay, currentMove, calculateWinner }) {
 	const winnerInfo = calculateWinner(squares);
@@ -50,7 +51,7 @@ export default function Board({ xIsNext, squares, onPlay, currentMove, calculate
 	return (
 		<>
 			<div className='status'>
-				<h2>{status}</h2>
+				<h2 style={{color: winner ? 'green': 'inherit'}}>{status}</h2>
 			</div>
 			{boardRows}
 		</>
