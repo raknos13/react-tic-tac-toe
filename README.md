@@ -1,4 +1,5 @@
 Tic-Tac-Toe game using React.
+![Live demo](https://imgur.com/a/wrRJxUS)
 
 Features:
 
