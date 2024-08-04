@@ -26,7 +26,6 @@ export default function Board({ xIsNext, squares, onPlay, currentMove, calculate
 	} else {
 		status = "It's a draw!";
 	}
-	console.log(winner, winningLine);
 
 	// dynamically generate 3x3 grid using two loops.
 	const boardRows = [...Array(3).keys()].map((row) => {
