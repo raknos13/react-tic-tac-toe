@@ -63,10 +63,10 @@ export default function Game() {
 					/>
 				</div>
 				<div className='game-info'>
+					<ol>{reverseMoveOrder ? moves.toReversed() : moves}</ol>
 					<button onClick={() => setReverseMoveOrder(!reverseMoveOrder)}>
 						Toggle move order
 					</button>
-					<ol>{reverseMoveOrder ? moves.toReversed() : moves}</ol>
 				</div>
 			</div>
 		</>
